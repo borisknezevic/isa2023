@@ -1,0 +1,20 @@
+services:
+  mysql:
+    build:
+      context: src/main/resources/database
+    restart: always
+    environment:
+      MYSQL_USER: 'bora'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    #    networks:
+    #      - host
+    volumes:
+      - my-db:/var/lib/mysql
+
+volumes:
+  my-db:
